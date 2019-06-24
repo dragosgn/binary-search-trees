@@ -61,6 +61,78 @@ class BST {
           return null;
         }
       };
+      return searchTree(node);
     }
+  }
+
+  findMin() {
+    let current = this.root;
+    while (current.right !== null) {
+      current = current.left;
+    }
+    return current.data;
+  }
+
+  findMax() {
+    let current = this.root;
+    while (current.right !== null) {
+      current = current.right;
+    }
+
+    return current.data;
+  }
+
+  find(data: number) {
+    let current = this.root;
+
+    while (current.data !== data) {
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+      if (current === null) {
+        return null;
+      }
+    }
+    return current;
+  }
+
+  isPresent(data: number) {
+    let current = this.root;
+    while (current) {
+      if (data === current.data) {
+        return true;
+      }
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  }
+
+  remove(data: number) {
+    const removeNode = function(node, data: number) {
+      if (node == null) {
+        return null;
+      }
+
+      if ((data = node.data)) {
+        // node has no children
+        if (node.left == null && node.tight == null) {
+          return null;
+        }
+        // node has no left child
+        if (node.right === null) {
+          return node.right;
+        }
+
+        if (node.right === null) {
+          return node.left;
+        }
+      }
+    };
   }
 }
