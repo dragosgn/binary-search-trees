@@ -13,10 +13,6 @@ import * as React from "react";
 // 2. transverse left
 // 3. transverse right
 
-export default () => {
-  return <div>This is the preorder transversal.</div>;
-};
-
 // Binary search tree in javascript
 
 class Node {
@@ -67,7 +63,7 @@ class BST {
 
   findMin() {
     let current = this.root;
-    while (current.right !== null) {
+    while (current.left !== null) {
       current = current.left;
     }
     return current.data;
@@ -119,7 +115,7 @@ class BST {
         return null;
       }
 
-      if ((data = node.data)) {
+      if (data === node.data) {
         // node has no children
         if (node.left == null && node.right == null) {
           return null;
@@ -148,5 +144,35 @@ class BST {
       }
     };
     this.root = removeNode(this.root, data);
+  }
+}
+
+const bst = new BST();
+
+export default class BstRender extends React.Component {
+  render() {
+    const randomNumbers = [
+      1,
+      3,
+      5,
+      7,
+      56,
+      43543,
+      34,
+      234,
+      3,
+      32423,
+      5234,
+      23423
+    ];
+    randomNumbers.map(number => bst.add(number));
+
+    return (
+      <div>
+        <p>min: {bst.findMin()}</p>
+        <p>max: {bst.findMax()}</p>
+        <p>is present 234 : {bst.isPresent(234) ? "yes" : "no"}</p>
+      </div>
+    );
   }
 }
