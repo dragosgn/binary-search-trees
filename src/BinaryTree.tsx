@@ -171,7 +171,7 @@ export default class BstRender extends React.Component {
       <div>
         <p>min: {bst.findMin()}</p>
         <p>max: {bst.findMax()}</p>
-        <p>is present 234 : {bst.isPresent(234) ? "yes" : "no"}</p>
+        <p>is present 234: {bst.isPresent(234) ? "yes" : "no"}</p>
       </div>
     );
   }

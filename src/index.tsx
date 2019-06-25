@@ -1,15 +1,20 @@
 import * as React from "react";
 import { render } from "react-dom";
 
-import PreorderTransversal from "./PreorderTransversal";
+import BinaryTree from "./BinaryTree";
+
+import stack from "./Stack";
+import queue from "./Queue";
 
 import "./styles.css";
 
 function App() {
+  stack();
+  queue();
   return (
     <div>
       <div>random things on a sunday</div>
-      <PreorderTransversal />
+      <BinaryTree />
     </div>
   );
 }
